@@ -1,5 +1,16 @@
+
+#vagrant plugin install vagrant-vbguest
+#vagrant plugin install vagrant-cachier
+
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2204"
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+    # Configure cached packages to be shared between instances of the same base box.
+    # More info on http://fgrehm.viewdocs.io/vagrant-cachier/usage
+    config.cache.scope = :box    
+    # For more information please check http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
+  end
   
   config.vm.define "ubuntu_write_os" do |ubuntu_write_os|
 
@@ -19,20 +30,11 @@ Vagrant.configure("2") do |config|
       #vb.customize ["setextradata", :id, "GUI/Fullscreen", "true"]
        
       vb.gui = true
-      config.vm.provision "ubuntu_etc shell script", type: "shell", path: "scripts/ubuntu_etc.sh", privileged: false  
     end
-
-    config.vm.provider "vmware_desktop" do |vm|
-      #vm.name = "Ubuntu Desktop, Visual Studio Code and Java"
-      vm.memory = "8192"
-      vm.cpus = "4"
-      
-      
-      vm.gui = true
-      config.vm.provision "ubuntu_etc shell script", type: "shell", path: "scripts/ubuntu_etc.sh", privileged: false  
-    end
-   
-    
   end
-
+  config.vm.provision "shell", path: "scripts/ubuntu_install.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/chrome_install.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/vscode_install.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/bochs_install.sh", privileged: false
+  config.vm.provision "shell",path: "scripts/ubuntu_config.sh", privileged: false      
 end
