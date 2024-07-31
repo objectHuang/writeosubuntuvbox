@@ -5,21 +5,17 @@ sudo apt update
 sudo apt upgrade -y
 
 echo "-----------------------------------------**** Begin installing ubuntu-desktop ****----------------------------------------"
-sudo apt install ubuntu-desktop -y
-sudo apt-get remove --purge --auto-remove libreoffice* -y
-sudo apt-get remove --purge --auto-remove cheese -y
-sudo apt-get purge --auto-remove totem totem-plugins -y
-sudo apt-get purge --auto-remove shotwell -y
-sudo apt-get purge --auto-remove gnome-todo -y
-sudo apt-get purge --auto-remove transmission-gtk -y
-sudo apt-get purge --auto-remove usb-creator-gtk -y
-sudo apt-get purge --auto-remove gnome-calendar -y
-sudo apt-get purge --auto-remove simple-scan -y
-sudo apt-get purge --auto-remove gnome-mines -y
-sudo apt-get purge --auto-remove gnome-sudoku -y
-sudo apt-get purge --auto-remove aisleriot gnome-mahjongg -y
-sudo apt purge --autoremove gnome-games -y
-sudo apt-get purge --auto-remove thunderbird* -y
-sudo apt-get purge --auto-remove byobu* -y
-sudo apt clean -y
+sudo apt-get install --no-install-recommends ubuntu-desktop -y
+sudo apt --fix-broken install -y
+sudo apt-get install fonts-liberation -y
+sudo apt-get install libvulkan1 -y
+sudo apt-get install xdg-utils -y
+sudo apt-get -y install yaru-theme-icon -y
+sudo apt-get -y install yaru-theme-gtk -y
+sudo apt-get install build-essential -y
+sudo apt-get install xorg-dev -y
+sudo apt-get install libgtk2.0-dev -y
+sudo apt-get install g++ -y
+sudo apt-get install wget gpg -y
+sudo apt install fonts-ubuntu -y
 echo "------------------------------------------**** End installing ubuntu-desktop ****------------------------------------------"

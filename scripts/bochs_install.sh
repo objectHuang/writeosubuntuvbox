@@ -1,9 +1,6 @@
 echo "-----------------------------------------**** Begin installing bochs ****----------------------------------------"
 
-sudo apt-get install build-essential -y
-sudo apt-get install xorg-dev -y
-sudo apt-get install libgtk2.0-dev -y
-sudo apt-get install g++ -y
+
 
 ls sharefolder/ | 
 grep ^REL_2_8_FINAL &> /dev/null || 
@@ -13,7 +10,7 @@ mv Bochs-REL_2_8_FINAL bochs_src
 cd bochs_src/bochs
 ./configure --prefix=/home/vagrant/public/bochs --enable-debugger --enable-iodebug --enable-x86-debugger --with-x --with-x11
 make
-sudo make install
+sudo make cd 
 cd ~
 #rm -rf bochs_src
 echo "-----------------------------------------**** End installing bochs ****----------------------------------------"
