@@ -30,6 +30,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "scripts/ubuntu_install.sh", privileged: false
   config.vm.provision "shell", path: "scripts/chrome_install.sh", privileged: false
   config.vm.provision "shell", path: "scripts/vscode_install.sh", privileged: false
-  #config.vm.provision "shell", path: "scripts/bochs_install.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/bochs_install.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/nasm_install.sh", privileged: false
+  config.vm.provision "shell", path: "scripts/sasm_install.sh", privileged: false
   config.vm.provision "shell",path: "scripts/ubuntu_config.sh", privileged: false      
 end
