@@ -13,11 +13,11 @@ Vagrant.configure("2") do |config|
       
     config.vm.provider "virtualbox" do |vb|
       vb.name = "Write OS VM"
-      vb.memory = "16384"
-      vb.cpus = "8"
-      vb.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
-      vb.customize ['modifyvm', :id, '--vram', '256']
-      vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+      vb.memory = "4096"
+      vb.cpus = "2"
+      #vb.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+      #vb.customize ['modifyvm', :id, '--vram', '256']
+      #vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
       vb.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
       vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
       #vb.customize ["setextradata", :id, "GUI/ScaleFactor", "2"]
